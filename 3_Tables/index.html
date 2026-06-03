@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tables</title>
+    <style>
+      /* Перша таблиця */
+      .my-table {
+        width: 100%;
+        max-width: 600px;
+        height: 200px;
+        margin: 40px;
+        border: 9px solid #ab10d1;
+        border-radius: 10px;
+      }
+
+      .my-table td {
+        border: 2px solid #000000;
+        padding: 5px 8px;
+        vertical-align: top;
+      }
+
+      .col-short {
+        background-color: rgb(0, 255, 55);
+        width: 20%;
+      }
+      .col-long {
+        background-color: blue;
+        width: 30%;
+      }
+
+      /* Друга таблиця */
+      .schedule-table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 800px;
+        margin: 30px;
+        font-family: Arial, sans-serif;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .schedule-table caption {
+        font-size: 20px;
+        font-weight: bold;
+        padding-bottom: 15px;
+        color: #333333;
+      }
+
+      .schedule-table th,
+      .schedule-table td {
+        border: 1px solid #444444;
+        padding: 12px;
+        text-align: left;
+        vertical-align: middle;
+      }
+
+      .schedule-table th {
+        background-color: #2c3e50;
+        color: #ffffff;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 14px;
+      }
+
+      .schedule-table tbody tr:hover {
+        background-color: #f1f4f6;
+        cursor: pointer;
+      }
+
+      .day-cell {
+        background-color: #bdc3c7;
+        font-weight: bold;
+        text-align: center;
+        letter-spacing: 4px;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        width: 40px;
+        color: #2c3e50;
+      }
+
+      .pair-cell,
+      .time-cell {
+        background-color: #ecf0f1;
+        text-align: center;
+        font-weight: 500;
+        color: #555555;
+      }
+
+      .classroom {
+        text-align: right;
+        color: #e74c3c;
+        font-weight: bold;
+        font-size: 16px;
+      }
+
+      .lesson-type {
+        font-style: italic;
+        color: #7f8c8d;
+      }
+
+      /* Третя таблиця*/
+      table.math-table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 600px;
+        margin: 30px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+      }
+
+      table.math-table th {
+        background: #34495e;
+        color: #fff;
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+      }
+
+      .cell-data {
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+
+      tr.row-odd:nth-child(odd) {
+        background-color: #f9f9f9;
+      }
+      tr.row-even:nth-child(even) {
+        background-color: #ffffff;
+      }
+
+      .cell-data:first-child {
+        font-weight: bold;
+        color: #2c3e50;
+        width: 25%;
+      }
+
+      .cell-data:last-child {
+        font-style: italic;
+        color: #16a085;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Завдання 3: Таблиці</h1>
+    <h3>Таблиця з варіанту 10:</h3>
+    <img src="image.png" alt="Картинка таблиці" />
+    <table class="my-table">
+      <tr>
+        <td class="col-short"></td>
+        <td class="col-short"></td>
+        <td class="col-long" rowspan="3"></td>
+        <td class="col-long" rowspan="4"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td rowspan="2"></td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+      <tr>
+        <td colspan="2"></td>
+        <td></td>
+      </tr>
+    </table>
+    <br />
+    <table class="schedule-table">
+      <caption>
+        Розклад занять на один день
+      </caption>
+      <thead>
+        <tr>
+          <th>День</th>
+          <th>Пара</th>
+          <th>Час дзвінків</th>
+          <th>Дисципліна, викладач та тип заняття</th>
+          <th>Аудиторія</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="day-cell" rowspan="6">ВІВТОРОК</td>
+          <td class="pair-cell">I пара</td>
+          <td class="time-cell">8:00 – 9:20</td>
+          <td>Програмування (Платонов) <span class="lesson-type">л.</span></td>
+          <td class="classroom">75</td>
+        </tr>
+        <tr>
+          <td class="pair-cell">II пара</td>
+          <td class="time-cell">9:30 – 10:50</td>
+          <td>
+            Дискретна математика та мат.логіка (доц. Якімова)
+            <span class="lesson-type">л.</span>
+          </td>
+          <td class="classroom">98</td>
+        </tr>
+        <tr>
+          <td class="pair-cell">III пара</td>
+          <td class="time-cell">11:20 – 12:40</td>
+          <td>
+            Дискретна математика та мат.логіка (доц. Якімова)
+            <span class="lesson-type">прак.</span>
+          </td>
+          <td class="classroom">98</td>
+        </tr>
+        <tr>
+          <td class="pair-cell">IV пара</td>
+          <td class="time-cell">12:50 – 14:10</td>
+          <td style="color: #95a5a6">—</td>
+          <td class="classroom">—</td>
+        </tr>
+        <tr>
+          <td class="pair-cell">V пара</td>
+          <td class="time-cell">14:20 – 15:40</td>
+          <td style="color: #95a5a6">—</td>
+          <td class="classroom">—</td>
+        </tr>
+        <tr>
+          <td class="pair-cell">VI пара</td>
+          <td class="time-cell">15:50 – 17:10</td>
+          <td style="color: #95a5a6">—</td>
+          <td class="classroom">—</td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <table class="math-table">
+      <thead>
+        <tr>
+          <th>Ім'я</th>
+          <th>Роки життя</th>
+          <th>Основні теореми</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row-odd">
+          <td class="cell-data">Мишель Ролль</td>
+          <td class="cell-data">1652 – 1719</td>
+          <td class="cell-data">Теорема Ролля (про нулі похідної функції)</td>
+        </tr>
+        <tr class="row-even">
+          <td class="cell-data">Жозеф-Луї Лагранж</td>
+          <td class="cell-data">1736 – 1813</td>
+          <td class="cell-data">Теорема Лагранжа (про скінченні прирости)</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
