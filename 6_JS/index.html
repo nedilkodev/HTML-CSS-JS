@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS</title>
+    <style>
+      button {
+        font-size: 15px;
+        width: 100px;
+        height: 50px;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+
+      .iP {
+        display: inline-block;
+      }
+
+      .iButton {
+        display: inline-block;
+        margin: 0px 0px 10px 20px;
+        background-color: rgb(160, 204, 160);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Завдання 6. JS</h1>
+    <div class="exerciseTwo">
+      <h3>Завдання 2:</h3>
+      <div class="firstEx">
+        <p class="iP">1) Кнопка, що виводить "Привіт!</p>
+        <button onclick="myFunction1()" class="iButton">Натисніть</button>
+      </div>
+      <div class="secondEx">
+        <p>2) Робота з input.</p>
+        <p class="iP">Потрібно ввести число у поле х1:</p>
+        <input id="inputNumber1" type="number" />
+        <button onclick="myFunction2()" class="iButton">Натисніть</button>
+      </div>
+      <div class="thirdEx">
+        <p class="iP">Змінюємо текст у рядку "demo1" на введене число.</p>
+        <button onclick="myFunction3()" class="iButton">Натисніть</button>
+        <p id="demo1"></p>
+      </div>
+      <div class="fourthEx">
+        <p class="iP">4) Використовуэмо console.log:</p>
+        <button onclick="myFunction4()" class="iButton">Натисніть</button>
+      </div>
+      <div class="fivthEx">
+        <p>5) Арифметика.</p>
+        <p class="iP">
+          До числа в полі x1 додаємо число в полі x2 та показуємо результат у
+          параграфі. Введіть число х2:
+        </p>
+        <input id="inputNumber2" type="number" />
+        <button onclick="myFunction5()" class="iButton">Натисніть</button>
+        <p id="demo2"></p>
+      </div>
+      <div class="seventhEx">
+        <p class="iP" id="demo3">
+          7) Цей текст змінює свій колір при натискані на кнопку.
+        </p>
+        <button onclick="myFunction7()" class="iButton">Натисніть</button>
+      </div>
+    </div>
+    <div class="exerciseThree">
+      <h3>Завдання 3:</h3>
+      <div class="ex1">
+        <p>Завдання 1 (варіант 9):</p>
+        <p>
+          Змішано v1 літрів рідини температурою 1 t і v2 літрів тієї ж рідини
+          температурою 2 t ( v1 , v2 , t1 , t2 >0 ). Визначити температуру й
+          об’єм суміші в припущенні, що об’єм не залежить від температури.
+        </p>
+        <p class="iP">Об'єм першою рідини</p>
+        <input type="number" id="v1" />
+        <br />
+        <p class="iP">Об'єм другої рідини</p>
+        <input type="number" id="v2" />
+        <br />
+        <p class="iP">Температура першою</p>
+        <input type="number" id="t1" />
+        <br />
+        <p class="iP">Температура другої</p>
+        <input type="number" id="t2" />
+        <br />
+        <button onclick="calculate()" class="iButton">Відповідь</button>
+      </div>
+      <div class="ex2">
+        <p>Завдання 2(варіант 9):</p>
+        <p>
+          Дано дійсні числа x, y. Визначити, чи належить точка з координатами
+          (x, y) заштрихованій частині площини, включаючи її межу. Розмістити на
+          сторінці малюнок, поля вводу координат точки та кнопку натискання на
+          яку призведе до публікації відповіді
+        </p>
+        <img src="image.png" alt="Графік" />
+        <br />
+        <p class="iP">Координата Х</p>
+        <input type="number" id="x" />
+        <br />
+        <p class="iP">Координата Y</p>
+        <input type="number" id="y" />
+        <br />
+        <button onclick="checkPoint()">Перевірити точку</button>
+      </div>
+    </div>
+    <script>
+      function myFunction1() {
+        alert("Привіт!");
+      }
+
+      function myFunction2() {
+        let x1 = parseFloat(document.getElementById("inputNumber1").value);
+        if (isNaN(x1)) {
+          alert("Введіть число!");
+        } else {
+          alert("Ви ввели число " + x1);
+        }
+      }
+
+      function myFunction3() {
+        let x1 = parseFloat(document.getElementById("inputNumber1").value);
+        if (isNaN(x1)) {
+          alert("Введіть число!");
+        } else {
+          document.getElementById("demo1").innerHTML = "Введене число: " + x1;
+        }
+      }
+
+      function myFunction4() {
+        console.log("Кнопку натиснуто...");
+      }
+
+      function myFunction5() {
+        let x1 = parseFloat(document.getElementById("inputNumber1").value);
+        let x2 = parseFloat(document.getElementById("inputNumber2").value);
+
+        if (isNaN(x1) || isNaN(x2)) {
+          alert("Введіть числа х1 та х2!");
+        } else {
+          document.getElementById("demo2").innerHTML =
+            "Обчислення завершено: " + (x1 + x2);
+        }
+      }
+
+      function myFunction7() {
+        document.getElementById("demo3").style.color = "red";
+      }
+
+      function calculate() {
+        let v1 = parseFloat(document.getElementById("v1").value);
+        let t1 = parseFloat(document.getElementById("t1").value);
+        let v2 = parseFloat(document.getElementById("v2").value);
+        let t2 = parseFloat(document.getElementById("t2").value);
+
+        if (isNaN(v1) || isNaN(t1) || isNaN(v2) || isNaN(t2)) {
+          alert("Введіть число! Всі поля мають бути заповнені.");
+        } else {
+          let shortAnswer = ((v1 * t1 + v2 * t2) / (v1 + v2)).toFixed(2);
+          alert("Відповідь: " + shortAnswer);
+          alert(
+            "Спочатку за формулою загального об'єму: V = v1 + v2. Це буде: " +
+              (v1 + v2),
+          );
+          alert(
+            "Потім беремо формулу температури суміші: T = (v1 * t1 + v2 * t2) / (v1 + v2). І ось сама відповідь буде " +
+              shortAnswer,
+          );
+        }
+      }
+
+      function checkPoint() {
+        let x = parseFloat(document.getElementById("x").value);
+        let y = parseFloat(document.getElementById("y").value);
+
+        if (isNaN(x) || isNaN(y)) {
+          alert("Введіть число!");
+        } else {
+          if (y <= 2 * x + 1 && y <= -3 * x + 1 && y >= -0.5 * x - 1.5) {
+            alert(
+              "Точка, з координатами " +
+                x +
+                " " +
+                y +
+                " НАЛЕЖИТЬ заштрихованій області.",
+            );
+          } else {
+            alert(
+              "Точка, з координатами " +
+                x +
+                " " +
+                y +
+                " НЕ НАЛЕЖИТЬ заштрихованій області.",
+            );
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
