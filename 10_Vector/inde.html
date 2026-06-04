@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vectors</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Завдання 10. Динамічні елементи сторінки</h1>
+      <h3>Неділько Микита, Варіант 9</h3>
+      <ul>
+        <li>Реалізувати заповнення вектора випадковими числами</li>
+        <li>Знаходження норми вектора</li>
+        <li>Нормувати вектор</li>
+        <li>Знаходження мінімального елемента вектора</li>
+        <li>Знаходження суми векторів</li>
+      </ul>
+    </header>
+
+    <hr />
+    <main>
+      <p style="display: inline-block">Розмір вектора:</p>
+      <input type="number" id="vSize" value="3" />
+      <button onclick="createVectors()">Ввести</button>
+      <br /><br />
+
+      <p style="display: inline-block">Діапазон від:</p>
+      <input type="number" id="randMin" value="-10" />
+      <p style="display: inline-block">до:</p>
+      <input type="number" id="randMax" value="10" />
+      <button onclick="fillRandom()">Заповнити випадковими</button>
+      <br /><br />
+
+      <div id="vectorA"></div>
+      <br />
+      <div id="vectorB"></div>
+      <br />
+
+      <button onclick="calcNorm()">Знайти норму (Вектор А)</button>
+      <button onclick="normalizeVector()">Нормувати (Вектор А)</button>
+      <button onclick="findMin()">Мінімальний елемент (Вектор А)</button>
+      <button onclick="calcSum()">Сума векторів (А + В)</button>
+      <br /><br />
+
+      <div id="output">Результати з'являться тут</div>
+    </main>
+
+    <script>
+      function createVectors() {
+        const size = parseInt(document.getElementById("vSize").value);
+        const containerA = document.getElementById("vectorA");
+        const containerB = document.getElementById("vectorB");
+
+        containerA.innerHTML = "Вектор A: <br>";
+        containerB.innerHTML = "Вектор B: <br>";
+
+        for (let i = 0; i < size; i++) {
+          containerA.innerHTML += `<input type="number" class="valA" style="width: 40px;"> `;
+          containerB.innerHTML += `<input type="number" class="valB" style="width: 40px;"> `;
+        }
+      }
+
+      function fillRandom() {
+        const min = parseInt(document.getElementById("randMin").value);
+        const max = parseInt(document.getElementById("randMax").value);
+
+        document.querySelectorAll(".valA, .valB").forEach((input) => {
+          input.value = Math.floor(Math.random() * (max - min + 1)) + min;
+        });
+      }
+
+      function getVals(className) {
+        return Array.from(document.querySelectorAll("." + className)).map(
+          (el) => parseInt(el.value) || 0,
+        );
+      }
+
+      function showResult(text) {
+        document.getElementById("output").innerHTML =
+          "<b>Результат:</b> " + text;
+      }
+
+      function calcNorm() {
+        const arr = getVals("valA");
+        const norm = Math.sqrt(arr.reduce((sum, val) => sum + val * val, 0));
+        showResult(norm);
+      }
+
+      function normalizeVector() {
+        const arr = getVals("valA");
+        const norm = Math.sqrt(arr.reduce((sum, val) => sum + val * val, 0));
+        const res = arr.map((val) => (norm ? val / norm : 0));
+        showResult(res.join(", "));
+      }
+
+      function findMin() {
+        const arr = getVals("valA");
+        showResult(Math.min(...arr));
+      }
+
+      function calcSum() {
+        const a = getVals("valA");
+        const b = getVals("valB");
+        const res = a.map((val, i) => val + b[i]);
+        showResult(res.join(", "));
+      }
+    </script>
+  </body>
+</html>
