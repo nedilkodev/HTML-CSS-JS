@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Моє Портфоліо</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Мої роботи</h1>
+      <p>Сайт-візитка з адаптивною розміткою</p>
+    </header>
+
+    <nav>
+      <a href="#about">Про мене</a>
+      <a href="#works">Мої роботи</a>
+      <a href="#contact">Контакти</a>
+      <a href="https://uk.wikipedia.org/wiki/JavaScript" target="_blank"
+        >Вікіпедія: JavaScript</a
+      >
+    </nav>
+
+    <main class="container">
+      <div class="column" id="about">
+        <h2>Про мене</h2>
+        <p>
+          Я студент Одеського національного університету імені І. І. Мечникова.
+        </p>
+        <p>
+          Цю сторінку я зробив по Завданню 8: Адаптивний дизайн.
+          Парам-парам-па-па
+        </p>
+      </div>
+
+      <div class="column" id="works">
+        <h2>Мої навички та роботи</h2>
+        <ul>
+          <li><strong>JavaScript:</strong> лінійні та умовні оператори.</li>
+          <li><strong>HTML Форми:</strong> створення форм для збору даних.</li>
+          <li>
+            <strong>Формули:</strong> написання формул в HTML за допомогою
+            LaTeX.
+          </li>
+          <li>
+            <strong>HTML Таблиці:</strong> створення та стилізація таблиць.
+          </li>
+        </ul>
+      </div>
+
+      <div class="column" id="contact">
+        <h2>Зворотний зв'язок</h2>
+        <form action="#">
+          <label for="name">Ім'я:</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Пошта:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="message">Повідомлення:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+
+          <button type="submit">Надіслати</button>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <p>А це footer. Що сюди наклацати</p>
+    </footer>
+  </body>
+</html>
